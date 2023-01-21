@@ -18,6 +18,8 @@ public class HelloApplication {
 	public static void main(String[] args) {
 		ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
 		WebServer webServer = serverFactory.getWebServer(servletContext -> {
+			HelloController helloController = new HelloController();
+
 			servletContext.addServlet("frontcontroller", new HttpServlet() {
 				@Override
 				protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,12 +27,14 @@ public class HelloApplication {
 					// GET으로 오는 /hello의 URL만 가능
 					if (request.getRequestURI().equals("/hello") && request.getMethod().equals(HttpMethod.GET.name())) {
 						String name = request.getParameter("name");
+						String rst = helloController.hello(name);
+
 
 						// ====== 응답 ======
 						// 상태 라인, 헤더, HTTP Body
 						response.setStatus(HttpStatus.OK.value()); // OK -> 200
 						response.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE);
-						response.getWriter().println("Hello " + name);
+						response.getWriter().println(rst);
 					} else if (request.getRequestURI().equals("/user")) {
 						//
 					} else {
