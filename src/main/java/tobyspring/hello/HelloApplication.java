@@ -18,6 +18,7 @@ public class HelloApplication {
 	public static void main(String[] args) {
 		GenericApplicationContext applicationContext = new GenericApplicationContext(); // Spring Container
 		applicationContext.registerBean(HelloController.class); // 빈 등록
+		applicationContext.registerBean(SimpleHelloService.class); // 빈 등록
 		applicationContext.refresh();
 
 		ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
