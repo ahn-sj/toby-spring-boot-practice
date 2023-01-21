@@ -1,3 +1,7 @@
-### 1. /hello?name=Spring
+### 1. GET /hello?name=Spring
 GET localhost:8080/hello?name=Spring
+Accept: application/json
+
+### 2. POST /hello?name=Spring
+POST localhost:8080/hello?name=Spring
 Accept: application/json
