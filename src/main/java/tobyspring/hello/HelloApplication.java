@@ -3,7 +3,6 @@ package tobyspring.hello;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -17,7 +16,7 @@ public class HelloApplication {
 		ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
 		WebServer webServer = serverFactory.getWebServer(servletContext -> {
 			servletContext.addServlet("dispatcherServlet",
-					new DispatcherServlet((WebApplicationContext) applicationContext)
+					new DispatcherServlet(applicationContext)
 			).addMapping("/*"); // 모든 요청을 front controller 가 받도록 변경
 		});
 		webServer.start(); // 톱캣 웹 서버를 실행
