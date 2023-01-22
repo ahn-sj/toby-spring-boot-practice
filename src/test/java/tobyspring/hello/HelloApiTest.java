@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class HelloApiTest {
@@ -26,7 +25,7 @@ public class HelloApiTest {
         // body >> Hello Spring
         assertThat(rst.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(rst.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
-        assertThat(rst.getBody()).isEqualTo("Hello Spring");
+        assertThat(rst.getBody()).isEqualTo("*Hello Spring*");
     }
 
     @Test
