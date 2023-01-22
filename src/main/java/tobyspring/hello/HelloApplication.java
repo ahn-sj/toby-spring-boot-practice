@@ -8,18 +8,19 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
 
-@Configuration
-@ComponentScan
+//@Configuration
+//@ComponentScan
+@MySpringBootAnnotation
 public class HelloApplication {
 
-	@Bean
-	public ServletWebServerFactory servletWebServerFactory() {
-		return new TomcatServletWebServerFactory();
-	}
-
-	@Bean DispatcherServlet dispatcherServlet() {
-		return new DispatcherServlet();
-	}
+//	@Bean
+//	public ServletWebServerFactory servletWebServerFactory() {
+//		return new TomcatServletWebServerFactory();
+//	}
+//
+//	@Bean DispatcherServlet dispatcherServlet() {
+//		return new DispatcherServlet();
+//	}
 
 	public static void main(String[] args) {
 //		MySpringApplication.run(HelloApplication.class, args); // Custom SpringApplication
