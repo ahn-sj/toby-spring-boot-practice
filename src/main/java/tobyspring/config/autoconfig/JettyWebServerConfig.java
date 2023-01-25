@@ -5,10 +5,10 @@ import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@MyAutoConfiguration
-public class TomcatWebServerConfig {
-    @Bean("tomcatWebServerFactory")
+@Configuration
+public class JettyWebServerConfig {
+    @Bean("jettyWebServerFactory")
     public ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
+        return new JettyServletWebServerFactory();
     }
 }
