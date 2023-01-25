@@ -28,12 +28,12 @@ public class MyAutoConfigImportSelector implements DeferredImportSelector {
             autoConfigs.add(candidate);
         }
 
+        return autoConfigs.toArray(new String[0]);
         // java8
         // ImportCandidates.load(MyAutoConfiguration.class, classLoader).forEach(autoConfigs::add);
 
 //        return autoConfigs.stream().toArray(String[]::new);
 //        return Arrays.copyOf(autoConfigs.toArray(), autoConfigs.size(), String[].class);
-        return autoConfigs.toArray(new String[0]);
 
         // stream
         // return StreamSupport.stream(candidates.spliterator(), false).toArray(String[]::new);
